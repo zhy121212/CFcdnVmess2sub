@@ -42,7 +42,7 @@ let vmessLinks = [ //本地CFcdnVmess节点池
 ];
 let vmessLinksURL = 'https://raw.githubusercontent.com/cmliu/CFcdnVmess2sub/main/vmesslinks';//CFcdnVmess节点池URL
 let proxyhosts = [//本地代理域名池
-	'zzzz.zzhy1212.top',//'ppfv2tl9veojd-maillazy.pages.dev',
+	'',//'ppfv2tl9veojd-maillazy.pages.dev',
 ];
 let proxyhostsURL = 'https://raw.githubusercontent.com/cmliu/CFcdnVmess2sub/main/proxyhosts';//在线代理域名池URL
 let FileName = 'CFcdnVmess2sub';
@@ -225,12 +225,12 @@ export default {
 		const url = new URL(request.url);
 		const format = url.searchParams.get('format') ? url.searchParams.get('format').toLowerCase() : "null";
 		let cc = "";
-		let host = "";
-		let uuid = "";
+		let host = "zzzz.zzhy1212.top";
+		let uuid = "8ee9178f-8f76-4b17-ea9f-a2737e2444cf";
 		let path = "";
 		let alterid = "";
 		let security = "";
-		let sni = "";
+		let sni = "zzzz.zzhy1212.top";
 		let UD = Math.floor(((timestamp - Date.now())/timestamp * 99 * 1099511627776 * 1024)/2);
 		if (env.UA) MamaJustKilledAMan = MamaJustKilledAMan.concat(await ADD(env.UA));
 		total = total * 1099511627776 * 1024;
