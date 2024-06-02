@@ -1,7 +1,7 @@
 
 // 部署完成后在网址后面加上这个，获取订阅器默认节点，/auto
 
-let mytoken= ['auto'];//快速订阅访问入口, 留空则不启动快速订阅
+let mytoken= ['pages123'];//快速订阅访问入口, 留空则不启动快速订阅
 
 // 设置优选地址，不带端口号默认443，TLS订阅生成
 let addresses = [
@@ -11,7 +11,7 @@ let addresses = [
 
 // 设置优选地址api接口
 let addressesapi = [
-	'https://raw.githubusercontent.com/cmliu/WorkerVless2sub/main/addressesapi.txt', //可参考内容格式 自行搭建。
+	'', //可参考内容格式 自行搭建。
 	//'https://raw.githubusercontent.com/cmliu/WorkerVless2sub/main/addressesipv6api.txt', //IPv6优选内容格式 自行搭建。
 ];
 
@@ -24,12 +24,24 @@ let addressesnotls = [
 
 // 设置优选noTLS地址api接口
 let addressesnotlsapi = [
-	'https://raw.githubusercontent.com/cmliu/CFcdnVmess2sub/main/addressesapi.txt',
+	'',
 ];
 
-let DLS = 8;//速度下限
+let DLS = 5;//速度下限
 let addressescsv = [
-	//'https://raw.githubusercontent.com/cmliu/WorkerVless2sub/main/addressescsv.csv', //iptest测速结果文件。
+	'https://cf-workers-text2kv-92d.pages.dev/AS0-0-HKG.csv?token=pages123',
+	'https://cf-workers-text2kv-92d.pages.dev/AS0-0-AMS.csv?token=pages123',
+	'https://cf-workers-text2kv-92d.pages.dev/AS0-0-BUF.csv?token=pages123',
+	'https://cf-workers-text2kv-92d.pages.dev/AS0-0-FRA.csv?token=pages123',
+	'https://cf-workers-text2kv-92d.pages.dev/AS0-0-IAD.csv?token=pages123',
+	'https://cf-workers-text2kv-92d.pages.dev/AS0-0-KIX.csv?token=pages123',
+	'https://cf-workers-text2kv-92d.pages.dev/AS0-0-LAX.csv?token=pages123',
+	'https://cf-workers-text2kv-92d.pages.dev/AS0-0-NRT.csv?token=pages123',
+	'https://cf-workers-text2kv-92d.pages.dev/AS0-0-SIN.csv?token=pages123',
+	'https://cf-workers-text2kv-92d.pages.dev/AS0-0-SJC.csv?token=pages123',
+	'https://cf-workers-text2kv-92d.pages.dev/AS0-0-SYD.csv?token=pages123',
+	'https://cf-workers-text2kv-92d.pages.dev/AS0-0-TPE.csv?token=pages123',
+	'https://cf-workers-text2kv-92d.pages.dev/AS0-0-YYZ.csv?token=pages123',//'https://raw.githubusercontent.com/cmliu/WorkerVless2sub/main/addressescsv.csv', //iptest测速结果文件。
 ];
 
 let subconverter = "url.v1.mk"; //在线订阅转换后端，目前使用肥羊的订阅转换功能。支持自建psub 可自行搭建https://github.com/bulianglin/psub
@@ -38,7 +50,8 @@ let noTLS = 'true'; // false
 let BotToken =''; //可以为空，或者@BotFather中输入/start，/newbot，并关注机器人
 let ChatID =''; //可以为空，或者@userinfobot中获取，/start
 let vmessLinks = [ //本地CFcdnVmess节点池
-	//'vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIk5MIiwNCiAgImFkZCI6ICJjZi4wOTAyMjcueHl6IiwNCiAgInBvcnQiOiAiNDQzIiwNCiAgImlkIjogIjA2MTk1YjViLTM4MTUtNGEwNy05NmY3LTQ3ZWVmYmIxYjE0MyIsDQogICJhaWQiOiAiMCIsDQogICJzY3kiOiAiYXV0byIsDQogICJuZXQiOiAid3MiLA0KICAidHlwZSI6ICJub25lIiwNCiAgImhvc3QiOiAidXJueGV3enZoLnNpdGUiLA0KICAicGF0aCI6ICIva3dobXZ3cyIsDQogICJ0bHMiOiAidGxzIiwNCiAgInNuaSI6ICJ1cm54ZXd6dmguc2l0ZSIsDQogICJhbHBuIjogIiIsDQogICJmcCI6ICIiDQp9',
+	'vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogInZtZXNzIHRscyIsDQogICJhZGQiOiAiMTg4LjExNC45Ny4yMjQiLA0KICAicG9ydCI6ICIyMDgzIiwNCiAgImlkIjogIjhlZTkxNzhmLThmNzYtNGIxNy1lYTlmLWEyNzM3ZTI0NDRjZiIsDQogICJhaWQiOiAiMCIsDQogICJzY3kiOiAiYXV0byIsDQogICJuZXQiOiAid3MiLA0KICAidHlwZSI6ICJub25lIiwNCiAgImhvc3QiOiAienp6ei56emh5MTIxMi50b3AiLA0KICAicGF0aCI6ICIvIiwNCiAgInRscyI6ICJ0bHMiLA0KICAic25pIjogInp6enouenpoeTEyMTIudG9wIiwNCiAgImFscG4iOiAiaHR0cC8xLjEiLA0KICAiZnAiOiAiIg0KfQ==
+'//'vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIk5MIiwNCiAgImFkZCI6ICJjZi4wOTAyMjcueHl6IiwNCiAgInBvcnQiOiAiNDQzIiwNCiAgImlkIjogIjA2MTk1YjViLTM4MTUtNGEwNy05NmY3LTQ3ZWVmYmIxYjE0MyIsDQogICJhaWQiOiAiMCIsDQogICJzY3kiOiAiYXV0byIsDQogICJuZXQiOiAid3MiLA0KICAidHlwZSI6ICJub25lIiwNCiAgImhvc3QiOiAidXJueGV3enZoLnNpdGUiLA0KICAicGF0aCI6ICIva3dobXZ3cyIsDQogICJ0bHMiOiAidGxzIiwNCiAgInNuaSI6ICJ1cm54ZXd6dmguc2l0ZSIsDQogICJhbHBuIjogIiIsDQogICJmcCI6ICIiDQp9',
 ];
 let vmessLinksURL = 'https://raw.githubusercontent.com/cmliu/CFcdnVmess2sub/main/vmesslinks';//CFcdnVmess节点池URL
 let proxyhosts = [//本地代理域名池
