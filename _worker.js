@@ -17,10 +17,9 @@ let addressesnotls = [];
 
 // 设置优选noTLS地址api接口
 let addressesnotlsapi = [
-	'',
 ];
 
-let DLS = 5;//速度下限
+let DLS = 4;//速度下限
 let addressescsv = [
 	'https://cf-workers-text2kv-92d.pages.dev/AS0-0-HKG.csv?token=pages123',
 	'https://cf-workers-text2kv-92d.pages.dev/AS0-0-AMS.csv?token=pages123',
